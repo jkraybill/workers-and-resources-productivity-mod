@@ -498,7 +498,7 @@ public class GameScenario {
 		Comparator<Industry> compareBySize = (Industry i1, Industry i2) -> new Double(i1.size).compareTo(i2.size);
 		Comparator<Industry> compareByFame = (Industry i1, Industry i2) -> new Double(i1.fame).compareTo(i2.fame);
 
-		System.out.println("Greetings comrade from the great nation of " + nation + "!");
+		System.out.println("Greetings from the great nation of " + nation + "!");
 		System.out.println("\nOur people are most productive in:");
 
 		Collections.sort(industries);
