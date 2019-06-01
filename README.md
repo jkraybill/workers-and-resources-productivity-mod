@@ -134,7 +134,7 @@ This is telling you which industries "should" be most productive, most large (nu
 
 5. You should now see a modified list of building files in the directory it gave you above. It will look like this:
 
-    ![screenshot](screenshot1.png)
+![screenshot](screenshot1.png)
 
 6. Copy all of the ".ini" files from this directory into your actual game directory. **This will permanently change the game configuration for these buildings! Make sure you took a safe backup above. If you want to revert to the vanilla game, all you do is copy the .ini files from your backup back into the game directory.**
 
@@ -148,15 +148,15 @@ To use the spreadsheet, open economics.xlsx in Excel and make sure it's open to 
 
 Using a good text editor (not Notepad), copy the values that the script spit out into "data.tsv". Paste them into cell A5 in the spreadsheet. It should look like this:
 
-    ![screenshot](screenshot2.png)
+![screenshot](screenshot2.png)
 
 Next, you'll need to enter actual trade values into the spreadsheet in columns T and U. The spreadsheet includes estimates for export and import costs per ton (fuel for your exports, and transport tariffs for the imports), change these based on what you think you'll be paying. That section should look like this:
 
-    ![screenshot](screenshot3.png)
+![screenshot](screenshot3.png)
 
 You will now see the middle section updated. It looks like this:
 
-    ![screenshot](screenshot4.png)
+![screenshot](screenshot4.png)
 
 This is the section that tells you which industries **might** be profitable based on strictly importing the products needed, and exporting the products they produce, with the transport cost assumptions above. It is usually a good idea to focus on the industries that either have a good profitability, or whose imports can be wholly created domestically (e.g. coal/iron/wood/oil/crops/gravel can all be created with zero import cost).
 
