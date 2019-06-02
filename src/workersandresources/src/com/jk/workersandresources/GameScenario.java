@@ -545,9 +545,9 @@ public class GameScenario {
 		System.out.println("Data for all the industries is in " + BUILDING_DIR + File.separator + subdir + File.separator + "data.tsv");
 	}
 
-	private static String[] NAME1 = new String[] { "Uzbek", "Turk", "Czech", "Taj", "Al", "Af", "Ar", "Uk" };
-	private static String[] NAME2 = new String[] { "", "men", "ik", "ban", "ghan", "slav", "oslav", "stotz" };
-	private static String[] NAME3 = new String[] { "ia", "istan", "akia" };
+	private static String[] NAME1 = new String[] { "Uzbek", "Turk", "Czech", "Taj", "Al", "Af", "Ar", "Uk", "Ug", "Bul", "Ro", "Mol", "Es", "Azer" };
+	private static String[] NAME2 = new String[] { "", "men", "ik", "ban", "ghan", "slav", "oslav", "oslov", "stotz", "dov", "on", "v" };
+	private static String[] NAME3 = new String[] { "ia", "istan", "akia", "a" };
 
 	private static String getNationName() {
 		return RandomUtil.get(NAME1) + RandomUtil.get(NAME2) + RandomUtil.get(NAME3);
