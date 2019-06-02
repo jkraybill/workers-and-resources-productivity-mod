@@ -56,9 +56,9 @@ Then, it randomly adjusts the productivity and size of each industry by a config
 
 Then, it randomly adjusts the size (workers required), productivity, and cost of each building by a configurable amount. The productivity and size value for the given industry is the baseline, and then is randomized by the BUILDING_DEVIATION value below. So if wood had received a 90% productivity and 60% size value, using the default BUILDING_DEVIATION of 0.15, both the Woodcutting Post and Sawmill would be expected to be between 75%-110% productive per worker, and have a size of 45%-75%. The building cost is also adjusted using BUILDING_DEVIATION, but uses industry productivity multiplied by size to determine the expected value. So a very productive, large factory of 150% worker productivity and 150% size would generally cost about 225% of its baseline value.
 
-Since these are randomized per step, the end result is a unique set of economics every game. The ratios of production, and capital costs will vary wildly every time you play. **Some scenarios will be simply unwinnable when using the default values**.
+Since these are randomized per step, the end result is a unique set of economics every game. The ratios of production, and capital costs will vary wildly every time you play. **Some scenarios may be simply unwinnable when using the default values**.
 
-If you want a milder experience, use lower numbers when generating your nation.
+If you want a milder experience, use lower numbers when generating your nation. You can even make it easier (see below)
 
 # How to use
 
@@ -159,5 +159,29 @@ You will now see the middle section updated. It looks like this:
 ![screenshot](screenshot4.png)
 
 This is the section that tells you which industries **might** be profitable based on strictly importing the products needed, and exporting the products they produce, with the transport cost assumptions above. It is usually a good idea to focus on the industries that either have a good profitability, or whose imports can be wholly created domestically (e.g. coal/iron/wood/oil/crops/gravel can all be created with zero import cost).
+
+# Example values
+
+Here are some ways to generate interesting scenarios.
+
+    java -classpath workersandresources.jar com.jk.workersandresources.GameScenario WORKING_DIRECTORY 0.8 0.3 0.15
+
+The default configuration. It makes industries 80%-110% productive for the most part. Generally only maybe 2-4 industries will be solidly profitable enough to build your start round.
+
+    java -classpath workersandresources.jar com.jk.workersandresources.GameScenario WORKING_DIRECTORY 0.5 0.3 0.1
+
+Extremely difficult, industries are scaled to an average of 50% productivity, most buildings ranging from 20%-80% productivity. Many industries will be unprofitable or extremely low productivity.
+
+    java -classpath workersandresources.jar com.jk.workersandresources.GameScenario WORKING_DIRECTORY 1.5 0.5 0.25
+    
+Easier start, still might be a bit harder than vanilla since the core industries are still nerfed, but should be a nice easy intro. Industries will be around 100-200% productivity.
+
+    java -classpath workersandresources.jar com.jk.workersandresources.GameScenario WORKING_DIRECTORY 0.8 0.6 0.6
+
+Very divergent scenario. Some industries/buildings could be 200% productivity, but many will also be at 20%. So some industries will be super-viable, others will be unviable. May be good if you want to try some scenarios where you are forced to go into a limited number of industries and power your nation through trade.
+
+# Bug reports, requests, etc
+
+Please use the Issues tracker here to log any issues or requests you have.
 
 Keep playing! Keep the nation alive!
