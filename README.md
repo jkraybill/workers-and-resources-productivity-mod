@@ -1,7 +1,7 @@
 # JK's Productivity Mod for Workers & Resources: Soviet Republic
 A scenario creation mod for the game "Workers &amp; Resources: Soviet Republic". It creates a unique set of economics for every new game by changing building production rates and costs.
 
-In its base confiuration, it makes the game harder but more varied. The script can also be used to make the game easier or generate extremely challenging economic situations.
+In its default configuration, it makes the game harder but more varied. The script can also be used to make the game easier or generate extremely challenging economic situations.
 
 # Overview
 
