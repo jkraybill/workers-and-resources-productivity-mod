@@ -163,7 +163,7 @@ This repo includes an Excel spreadsheet I used for designing this mod, and which
 
 To use the spreadsheet, open economics.xlsx in Excel and make sure it's open to the "Custom" tab.
 
-Using a good text editor (not Notepad), copy the values that the script spit out into "data.tsv". Paste them into cell A5 in the spreadsheet. It should look like this:
+Using a good text editor (not Notepad), copy the values that the script wrote in "data.tsv". Paste them into cell A5 in the spreadsheet. It should look like this:
 
 ![screenshot](screenshot2.png)
 
