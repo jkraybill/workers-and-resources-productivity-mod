@@ -67,7 +67,7 @@ If you want a milder experience, use lower numbers when generating your nation.
 3. Make a working copy of your "buildings_types" directory from Workers & Resources: Soviet Republic into a different place. (IMPORTANT! DO NOT USE MODDING SCRIPTS DIRECTLY ON YOUR GAME DIRECTORY, that's always a bad idea.)
 4. Run the script using Java. The usage is
 
-    java net.jk.workersandresources.GameScenario WORKING_DIRECTORY MEAN_PRODUCTIVITY_MULTIPLIER INDUSTRY_DEVIATION BUILDING_DEVIATION
+    java -classpath workersandresources.jar com.jk.workersandresources.GameScenario WORKING_DIRECTORY MEAN_PRODUCTIVITY_MULTIPLIER INDUSTRY_DEVIATION BUILDING_DEVIATION
   
 Where:
   
