@@ -15,7 +15,7 @@ In one scenario, you may be a nation who can produce crops and livestock very we
 
 The mod comes with an economic spreadsheet that can be used to plan your development, and assess which industries are likely to be productive for your nation. The spreadsheet is optional but helps a lot on harder scenarios.
 
-This mod also re-balances some of the core industries (coal, oil, livestock, and clothing) to make them less productive and therefore less obvious choices for every game.
+This mod also re-balances (aka "nerfs") some of the core industries (coal, oil, livestock, and clothing) to make them less productive and therefore less obvious choices for every game.
 
 # What this mod does
 
