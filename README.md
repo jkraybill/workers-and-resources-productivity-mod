@@ -207,4 +207,4 @@ Very divergent scenario. Some industries/buildings could be 200% productivity, b
 
 Please use the Issues tracker here to log any issues or requests you have.
 
-Keep playing! Keep the nation alive!
+Good luck!
