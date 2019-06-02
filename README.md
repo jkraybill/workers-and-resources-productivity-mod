@@ -150,7 +150,7 @@ Using a good text editor (not Notepad), copy the values that the script spit out
 
 ![screenshot](screenshot2.png)
 
-Next, you'll need to enter actual trade values into the spreadsheet in columns T and U. The spreadsheet includes estimates for export and import costs per ton (fuel for your exports, and transport tariffs for the imports), change these based on what you think you'll be paying. That section should look like this:
+Next, you'll need to enter actual trade values into the spreadsheet in columns T and U. The spreadsheet includes estimates for export and import costs per ton (fuel for your exports, and transport tariffs for the imports). **Enter your commodity prices from your game, and edit the export/import costs based on what you think you'll be paying.** That section should look like this:
 
 ![screenshot](screenshot3.png)
 
@@ -159,6 +159,8 @@ You will now see the middle section updated. It looks like this:
 ![screenshot](screenshot4.png)
 
 This is the section that tells you which industries **might** be profitable based on strictly importing the products needed, and exporting the products they produce, with the transport cost assumptions above. It is usually a good idea to focus on the industries that either have a good profitability, or whose imports can be wholly created domestically (e.g. coal/iron/wood/oil/crops/gravel can all be created with zero import cost).
+
+**Using the spreadsheet is very optional, however it is a very useful tool in planning your economic development. Under some hard scenarios, I don't think I would have survived without referring to the spreadsheet.**
 
 # Example values
 
