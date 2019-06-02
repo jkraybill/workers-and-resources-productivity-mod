@@ -177,7 +177,7 @@ You will now see the middle section updated. It looks like this:
 
 This is the section that tells you which industries **might** be profitable based on strictly importing the products needed, and exporting the products they produce, with the transport cost assumptions above. It is usually a good idea to focus on the industries that either have a good profitability, or whose imports can be wholly created domestically (e.g. coal/iron/wood/oil/crops/gravel can all be created with zero import cost).
 
-**Using the spreadsheet is very optional, however it is a very useful tool in planning your economic development. Under some hard scenarios, I don't think I would have survived without referring to the spreadsheet.**
+**Using the spreadsheet is optional, however it is a very useful tool in planning your economic development. Under some hard scenarios, I don't think I would have survived without referring to the spreadsheet.**
 
 # Example values
 
