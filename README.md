@@ -1,5 +1,21 @@
 # workers-and-resources-insane-mode
-Mod scripts for the game "Workers &amp; Resources: Soviet Republic". Makes the game very difficult.
+Scenario creation mod for the game "Workers &amp; Resources: Soviet Republic". It creates a unique set of economics for every new game by changing building production rates and costs.
+
+In its base confiuration, makes the game harder but more varied than in the base game. The script can also be used to make the game easier or generate challenging economic situations.
+
+# Overview
+
+Do you want a fresh challenge every time you play Workers & Resources: Soviet Republic?
+
+Once you've played several times, you'll notice that the way you "should" play, and the way you should start, is probably quite similar every time. This mod's goal is to give you a fresh set of economic challenges every time you play.
+
+The mod changes your buildings so that every game, some industries will be more or less productive than others, and costs will be different. It also is intended to make the game more challenging, but it can also be run to make the game easier.
+
+In one scenario, you may be a nation who can produce crops and livestock very well, but needs to import power and steel; in another, you may be a nation who can process oil well but can't mine it very effectively; in another, coal power plants may cost 1.5m rubles. There are endless possibilities!
+
+The mod comes with an economic spreadsheet that can be used to plan your development, and assess which industries are likely to be productive for your nation. The spreadsheet is optional but helps a lot on harder scenarios.
+
+This mod also re-balances some of the core industries (coal, oil, livestock, and clothing) to make them less productive and therefore less obvious choices for every game.
 
 # What this mod does
 
@@ -50,15 +66,16 @@ It lowers baseline production for a few buildings I think are overpowered:
 1. Coal Power Plant: default workers required increased from 20 to 40; daily production decreased from 1400 MWh to 1000 MWh.
 1. Oil Rig: daily production decreased from 7t to 3.5t.
 1. Oil Refinery: daily production decreased from 125t oil and 75t bitumen to 100t oil and 60t bitumen.
+1. Livestock Farm: daily production decreased from 5t to 3t.
 1. Clothing Factory: daily production decreased from 1.2t to 0.8t.
 
-Then, it randomly adjusts the productivity and size of each industry by a configurable amount. The adjustments use a normal distribution with a mean (MEAN_PRODUCTIVITY_MULTIPLIER below) and a deviation (INDUSTRY_DEVIATION) below. Using the default values of 0.8 and 0.3, this means most industries will be adjusted to between 50% and 110% of the baseline values.
+Then, it randomly adjusts the productivity and size of each industry by a configurable amount. The adjustments use a normal distribution with a mean (MEAN_PRODUCTIVITY_MULTIPLIER below) and a deviation (INDUSTRY_DEVIATION) below. Using the default values of 0.8 and 0.3, this means most industries will be adjusted to between 50% and 110% of the baseline values (that's an average of 80% with a standard deviation of 30%).
 
 Then, it randomly adjusts the size (workers required), productivity, and cost of each building by a configurable amount. The productivity and size value for the given industry is the baseline, and then is randomized by the BUILDING_DEVIATION value below. So if wood had received a 90% productivity and 60% size value, using the default BUILDING_DEVIATION of 0.15, both the Woodcutting Post and Sawmill would be expected to be between 75%-110% productive per worker, and have a size of 45%-75%. The building cost is also adjusted using BUILDING_DEVIATION, but uses industry productivity multiplied by size to determine the expected value. So a very productive, large factory of 150% worker productivity and 150% size would generally cost about 225% of its baseline value.
 
-Since these are randomized per step, the end result is a unique set of economics every game. The ratios of production, and capital costs will vary wildly every time you play. **Some scenarios will be simply unwinnable when using the default values**.
+Since these are randomized per step, the end result is a unique set of economics every game. The ratios of production, and capital costs will vary wildly every time you play. **Some scenarios may be difficult to the point of being unwinnable when using the default values**.
 
-If you want a milder experience, use lower numbers when generating your nation.
+If you want a milder experience, use lower numbers when generating your nation. You can even make it easier (see "Example values" below).
 
 # How to use
 
@@ -130,7 +147,7 @@ The script will generate a bunch of logging output, and then at the end will giv
     Config files are in [DIRECTORY]\Tajmenistan-1559359482539 -- copy over the files in your buildings_types game directory (MAKE SURE TO BACK THEM UP FIRST!).
     Data for all the industries is in [DIRECTORY]\Tajmenistan-1559359482539\data.tsv
     
-This is telling you which industries "should" be most productive, most large (number of workers), and most costly. **This data is a rough guide, it's intentionally misleading because the actual building values have been further randomized around those values.** In the above list, I would usually look at an industry like Agriculture as a potential starting point, because it will probably be reasonably productive without costing exorbitant capital costs.
+This is telling you which industries "should" be most productive, most large (number of workers), and most costly. **This data is a rough guide, it's intentionally misleading because the actual building values have been further randomized around those values.** In the above list, I would usually look at an industry like Agriculture as a potential starting point, because it will probably be reasonably productive without having exorbitant capital costs.
 
 5. You should now see a modified list of building files in the directory it gave you above. It will look like this:
 
@@ -150,7 +167,7 @@ Using a good text editor (not Notepad), copy the values that the script spit out
 
 ![screenshot](screenshot2.png)
 
-Next, you'll need to enter actual trade values into the spreadsheet in columns T and U. The spreadsheet includes estimates for export and import costs per ton (fuel for your exports, and transport tariffs for the imports), change these based on what you think you'll be paying. That section should look like this:
+Next, you'll need to enter actual trade values into the spreadsheet in columns T and U. The spreadsheet includes estimates for export and import costs per ton (fuel for your exports, and transport tariffs for the imports). **Enter your commodity prices from your game, and edit the export/import costs based on what you think you'll be paying.** That section should look like this:
 
 ![screenshot](screenshot3.png)
 
@@ -159,5 +176,31 @@ You will now see the middle section updated. It looks like this:
 ![screenshot](screenshot4.png)
 
 This is the section that tells you which industries **might** be profitable based on strictly importing the products needed, and exporting the products they produce, with the transport cost assumptions above. It is usually a good idea to focus on the industries that either have a good profitability, or whose imports can be wholly created domestically (e.g. coal/iron/wood/oil/crops/gravel can all be created with zero import cost).
+
+**Using the spreadsheet is very optional, however it is a very useful tool in planning your economic development. Under some hard scenarios, I don't think I would have survived without referring to the spreadsheet.**
+
+# Example values
+
+Here are some ways to generate interesting scenarios.
+
+    java -classpath workersandresources.jar com.jk.workersandresources.GameScenario WORKING_DIRECTORY 0.8 0.3 0.15
+
+The default configuration. It makes industries 80%-110% productive for the most part. Generally only maybe 2-4 industries will be solidly profitable enough to build your start round. Significantly more difficult than vanilla, but most scenarios seem to have a clear path to growth.
+
+    java -classpath workersandresources.jar com.jk.workersandresources.GameScenario WORKING_DIRECTORY 0.5 0.3 0.1
+
+Extremely difficult, industries are scaled to an average of 50% productivity, most buildings ranging from 20%-80% productivity. Many industries will be unprofitable or have extremely low productivity. If you do find a way to get to profitability, it will likely be a very long slog to building a great nation!
+
+    java -classpath workersandresources.jar com.jk.workersandresources.GameScenario WORKING_DIRECTORY 1.5 0.5 0.25
+    
+Easier start, still might be a bit harder than vanilla since the core industries are still nerfed, but should be a nice easy intro. Industries will be around 100-200% productivity.
+
+    java -classpath workersandresources.jar com.jk.workersandresources.GameScenario WORKING_DIRECTORY 0.8 0.6 0.6
+
+Very divergent scenario. Some industries/buildings could be 200% productivity, but many will also be at 20%. So some industries will be super-viable, others will be unviable. May be good if you want to try some scenarios where you are forced to go into a limited number of industries and power your nation through trade.
+
+# Bug reports, requests, etc
+
+Please use the Issues tracker here to log any issues or requests you have.
 
 Keep playing! Keep the nation alive!
