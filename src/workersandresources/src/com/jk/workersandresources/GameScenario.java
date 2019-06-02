@@ -169,9 +169,9 @@ public class GameScenario {
 		modifyConstruction(iron, "iron_mine.ini", "$COST_RESOURCE boards", 75, subdir);
 		modifyConstruction(iron, "iron_mine.ini", "$COST_RESOURCE concrete", 180, subdir);
 		modifyConstruction(iron, "iron_mine.ini", "$COST_RESOURCE steel", 45, subdir);
-		map(7, 1, "Iron Mine");
-		map(7, 2, w);
-		map(7, 7, w * p1);
+		map(8, 1, "Iron Mine");
+		map(8, 2, w);
+		map(8, 7, w * p1);
 
 		w = modifyWorkers(iron, "iron_processing.ini", "$WORKERS_NEEDED", 15, subdir);
 		p1 = modifyProduction(iron, "iron_processing.ini", "$PRODUCTION iron", 7, subdir);
@@ -183,10 +183,10 @@ public class GameScenario {
 		modifyConstruction(iron, "iron_processing.ini", "$COST_RESOURCE_AUTO wall_concrete", 1, subdir);
 		modifyConstruction(iron, "iron_processing.ini", "$COST_RESOURCE_AUTO wall_steel", 1, subdir);
 		modifyConstruction(iron, "iron_processing.ini", "$COST_RESOURCE_AUTO tech_steel", 1, subdir);
-		map(8, 1, "Iron Processing");
-		map(8, 2, w);
-		map(8, 3, w * c1);
-		map(8, 7, w * p1);
+		map(9, 1, "Iron Processing");
+		map(9, 2, w);
+		map(9, 3, w * c1);
+		map(9, 7, w * p1);
 
 		Industry coal = new Industry("Coal");
 		industries.add(coal);
@@ -200,9 +200,9 @@ public class GameScenario {
 		modifyConstruction(coal, "coal_mine.ini", "$COST_RESOURCE boards", 75, subdir);
 		modifyConstruction(coal, "coal_mine.ini", "$COST_RESOURCE concrete", 180, subdir);
 		modifyConstruction(coal, "coal_mine.ini", "$COST_RESOURCE steel", 45, subdir);
-		map(10, 1, "Coal Mine");
-		map(10, 2, w);
-		map(10, 7, w * p1);
+		map(11, 1, "Coal Mine");
+		map(11, 2, w);
+		map(11, 7, w * p1);
 
 		w = modifyWorkers(coal, "coal_processing.ini", "$WORKERS_NEEDED", 30, subdir); // was 15
 		p1 = modifyProduction(coal, "coal_processing.ini", "$PRODUCTION coal", 2.5, subdir); // was 8
@@ -214,10 +214,10 @@ public class GameScenario {
 		modifyConstruction(coal, "coal_processing.ini", "$COST_RESOURCE_AUTO wall_concrete", 1, subdir);
 		modifyConstruction(coal, "coal_processing.ini", "$COST_RESOURCE_AUTO wall_steel", 1, subdir);
 		modifyConstruction(coal, "coal_processing.ini", "$COST_RESOURCE_AUTO tech_steel", 1, subdir);
-		map(11, 1, "Coal Processing");
-		map(11, 2, w);
-		map(11, 3, w * c1);
-		map(11, 7, w * p1);
+		map(12, 1, "Coal Processing");
+		map(12, 2, w);
+		map(12, 3, w * c1);
+		map(12, 7, w * p1);
 
 		Industry gravel = new Industry("Gravel");
 		industries.add(gravel);
@@ -227,9 +227,9 @@ public class GameScenario {
 		modifyConstruction(gravel, "gravelmine.ini", "$COST_RESOURCE_AUTO ground_asphalt", 3, subdir);
 		modifyConstruction(gravel, "gravelmine.ini", "$COST_RESOURCE_AUTO wall_brick", 2.8, subdir);
 		modifyConstruction(gravel, "gravelmine.ini", "$COST_RESOURCE_AUTO roof_woodsteel", 2.8, subdir);
-		map(14, 1, "Quarry");
-		map(14, 2, w);
-		map(14, 7, w * p1);
+		map(15, 1, "Quarry");
+		map(15, 2, w);
+		map(15, 7, w * p1);
 
 		w = modifyWorkers(gravel, "gravel_processing.ini", "$WORKERS_NEEDED", 15, subdir);
 		p1 = modifyProduction(gravel, "gravel_processing.ini", "$PRODUCTION gravel", 5.5, subdir);
@@ -241,10 +241,10 @@ public class GameScenario {
 		modifyConstruction(gravel, "gravel_processing.ini", "$COST_RESOURCE_AUTO tech_steel", 0.35, subdir);
 		modifyConstruction(gravel, "gravel_processing.ini", "$STORAGE_IMPORT RESOURCE_TRANSPORT_GRAVEL", 10, subdir);
 		modifyConstruction(gravel, "gravel_processing.ini", "$STORAGE_EXPORT RESOURCE_TRANSPORT_GRAVEL", 145, subdir);
-		map(15, 1, "Gravel Processing");
-		map(15, 2, w);
-		map(15, 3, w * c1);
-		map(15, 7, w * p1);
+		map(16, 1, "Gravel Processing");
+		map(16, 2, w);
+		map(16, 3, w * c1);
+		map(16, 7, w * p1);
 
 		Industry oil = new Industry("Oil");
 		industries.add(oil);
@@ -253,9 +253,9 @@ public class GameScenario {
 		modifyConstruction(oil, "oil_mine.ini", "$STORAGE_EXPORT RESOURCE_TRANSPORT_OIL", 15, subdir);
 		modifyConstruction(oil, "oil_mine.ini", "$COST_RESOURCE_AUTO ground_asphalt", 1, subdir);
 		modifyConstruction(oil, "oil_mine.ini", "$COST_RESOURCE_AUTO tech_steel", 2, subdir);
-		map(18, 1, "Oil Rig");
-		map(18, 2, 1); // "1" worker
-		map(18, 7, p1);
+		map(19, 1, "Oil Rig");
+		map(19, 2, 1); // "1" worker
+		map(19, 7, p1);
 
 		w = modifyWorkers(oil, "oil_rafinery.ini", "$WORKERS_NEEDED", 500, subdir);
 		p1 = modifyProduction(oil, "oil_rafinery.ini", "$PRODUCTION fuel", 0.2, subdir); // was 0.25
@@ -267,19 +267,22 @@ public class GameScenario {
 		modifyConstruction(oil, "oil_rafinery.ini", "$STORAGE_EXPORT_SPECIAL RESOURCE_TRANSPORT_OIL", 250, "bitumen", subdir);
 		modifyConstruction(oil, "oil_rafinery.ini", "$COST_RESOURCE_AUTO ground_asphalt", 1, subdir);
 		modifyConstruction(oil, "oil_rafinery.ini", "$COST_RESOURCE_AUTO tech_steel", 0.8, subdir);
-		map(19, 1, "Oil Refinery");
-		map(19, 2, w);
-		map(19, 3, w * c1);
-		map(19, 7, w * p1);
-		map(19, 8, w * p2);
+		map(20, 1, "Oil Refinery");
+		map(20, 2, w);
+		map(20, 3, w * c1);
+		map(20, 7, w * p1);
+		map(20, 8, w * p2);
 
 		Industry agriculture = new Industry("Agriculture");
 		industries.add(agriculture);
-		modifyProduction(agriculture, "farm.ini", "$PRODUCTION plants", 0.01, subdir);
+		p1 = modifyProduction(agriculture, "farm.ini", "$PRODUCTION plants", 0.01, subdir);
 		modifyConstruction(agriculture, "farm.ini", "$STORAGE_EXPORT RESOURCE_TRANSPORT_COVERED", 170, subdir);
 		modifyConstruction(agriculture, "farm.ini", "$COST_RESOURCE_AUTO ground_asphalt", 0.6, subdir);
 		modifyConstruction(agriculture, "farm.ini", "$COST_RESOURCE_AUTO wall_steel", 0.6, subdir);
 		modifyConstruction(agriculture, "farm.ini", "$COST_RESOURCE_AUTO tech_steel", 0.5, subdir);
+		map(7, 1, "Farm");
+		map(7, 2, 1); // "1 worker"
+		map(7, 7, 250 * p1);
 
 		w = modifyWorkers(agriculture, "food_factory.ini", "$WORKERS_NEEDED", 170, subdir);
 		p1 = modifyProduction(agriculture, "food_factory.ini", "$PRODUCTION food", 0.12, subdir);
@@ -290,10 +293,10 @@ public class GameScenario {
 		modifyConstruction(agriculture, "food_factory.ini", "$COST_RESOURCE_AUTO roof_woodsteel", 1, subdir);
 		modifyConstruction(agriculture, "food_factory.ini", "$STORAGE_IMPORT RESOURCE_TRANSPORT_COVERED", 90, subdir);
 		modifyConstruction(agriculture, "food_factory.ini", "$STORAGE_EXPORT RESOURCE_TRANSPORT_COVERED", 50, subdir);
-		map(23, 1, "Food Factory");
-		map(23, 2, w);
-		map(23, 3, w * c1);
-		map(23, 7, w * p1);
+		map(24, 1, "Food Factory");
+		map(24, 2, w);
+		map(24, 3, w * c1);
+		map(24, 7, w * p1);
 
 		Industry alcohol = new Industry("Alcohol");
 		industries.add(alcohol);
@@ -306,10 +309,10 @@ public class GameScenario {
 		modifyConstruction(alcohol, "distillery.ini", "$COST_RESOURCE_AUTO ground_asphalt", 1, subdir);
 		modifyConstruction(alcohol, "distillery.ini", "$COST_RESOURCE_AUTO wall_brick", 0.8, subdir);
 		modifyConstruction(alcohol, "distillery.ini", "$COST_RESOURCE_AUTO wall_steel", 0.2, subdir);
-		map(24, 1, "Distillery");
-		map(24, 2, w);
-		map(24, 3, w * c1);
-		map(24, 7, w * p1);
+		map(25, 1, "Distillery");
+		map(25, 2, w);
+		map(25, 3, w * c1);
+		map(25, 7, w * p1);
 
 		Industry energy = new Industry("Energy");
 		industries.add(energy);
@@ -322,10 +325,10 @@ public class GameScenario {
 		modifyConstruction(energy, "powerplant_coal.ini", "$COST_RESOURCE_AUTO wall_concrete", 0.8, subdir);
 		modifyConstruction(energy, "powerplant_coal.ini", "$COST_RESOURCE_AUTO tech_steel", 0.5, subdir);
 		modifyConstruction(energy, "powerplant_coal.ini", "$COST_RESOURCE_AUTO electro_steel", 0.25, subdir);
-		map(13, 1, "Coal Power Plant");
-		map(13, 2, w);
-		map(13, 3, w * c1);
-		map(13, 7, w * p1);
+		map(14, 1, "Coal Power Plant");
+		map(14, 2, w);
+		map(14, 3, w * c1);
+		map(14, 7, w * p1);
 
 		Industry cm = new Industry("Construction Materials");
 		industries.add(cm);
@@ -337,10 +340,10 @@ public class GameScenario {
 		modifyConstruction(cm, "brick_factory.ini", "$COST_RESOURCE_AUTO ground_asphalt", 1, subdir);
 		modifyConstruction(cm, "brick_factory.ini", "$COST_RESOURCE_AUTO wall_brick", 1, subdir);
 		modifyConstruction(cm, "brick_factory.ini", "$COST_RESOURCE_AUTO roof_woodsteel", 1, subdir);
-		map(12, 1, "Brick Factory");
-		map(12, 2, w);
-		map(12, 3, w * c1);
-		map(12, 7, w * p1);
+		map(13, 1, "Brick Factory");
+		map(13, 2, w);
+		map(13, 3, w * c1);
+		map(13, 7, w * p1);
 
 		w = modifyWorkers(cm, "cement_plant.ini", "$WORKERS_NEEDED", 30, subdir);
 		p1 = modifyProduction(cm, "cement_plant.ini", "$PRODUCTION cement", 2.7, subdir);
@@ -353,11 +356,11 @@ public class GameScenario {
 		modifyConstruction(cm, "cement_plant.ini", "$COST_RESOURCE_AUTO wall_concrete", 1, subdir);
 		modifyConstruction(cm, "cement_plant.ini", "$COST_RESOURCE_AUTO wall_steel", 1, subdir);
 		modifyConstruction(cm, "cement_plant.ini", "$COST_RESOURCE_AUTO tech_steel", 1, subdir);
-		map(16, 1, "Cement Plant");
-		map(16, 2, w);
-		map(16, 3, w * c1);
-		map(16, 4, w * c2);
-		map(16, 7, w * p1);
+		map(17, 1, "Cement Plant");
+		map(17, 2, w);
+		map(17, 3, w * c1);
+		map(17, 4, w * c2);
+		map(17, 7, w * p1);
 
 		w = modifyWorkers(cm, "asphalt_plant.ini", "$WORKERS_NEEDED", 5, subdir);
 		p1 = modifyProduction(cm, "asphalt_plant.ini", "$PRODUCTION asphalt", 29, subdir);
@@ -369,12 +372,12 @@ public class GameScenario {
 		modifyConstruction(cm, "asphalt_plant.ini", "$STORAGE_EXPORT RESOURCE_TRANSPORT_GRAVEL", 0.5, subdir);
 		modifyConstruction(cm, "asphalt_plant.ini", "$COST_RESOURCE_AUTO ground_asphalt", 1.3, subdir);
 		modifyConstruction(cm, "asphalt_plant.ini", "$COST_RESOURCE_AUTO tech_steel", 1, subdir);
-		map(20, 1, "Asphalt Plant");
-		map(20, 2, w);
-		map(20, 3, w * c1);
-		map(20, 4, w * c2);
-		map(20, 5, w * c3);
-		map(20, 7, w * p1);
+		map(21, 1, "Asphalt Plant");
+		map(21, 2, w);
+		map(21, 3, w * c1);
+		map(21, 4, w * c2);
+		map(21, 5, w * c3);
+		map(21, 7, w * p1);
 
 		Industry livestock = new Industry("Livestock");
 		industries.add(livestock);
@@ -387,10 +390,10 @@ public class GameScenario {
 		modifyConstruction(livestock, "animal_farm.ini", "$COST_RESOURCE_AUTO wall_brick", 0.7, subdir);
 		modifyConstruction(livestock, "animal_farm.ini", "$COST_RESOURCE_AUTO wall_steel", 0.5, subdir);
 		modifyConstruction(livestock, "animal_farm.ini", "$COST_RESOURCE_AUTO roof_steel", 0.5, subdir);
-		map(21, 1, "Livestock Farm");
-		map(21, 2, w);
-		map(21, 3, w * c1);
-		map(21, 7, w * p1);
+		map(22, 1, "Livestock Farm");
+		map(22, 2, w);
+		map(22, 3, w * c1);
+		map(22, 7, w * p1);
 
 		w = modifyWorkers(livestock, "slaughterhouse.ini", "$WORKERS_NEEDED", 50, subdir);
 		c1 = modifyConsumption(livestock, "slaughterhouse.ini", "$CONSUMPTION livestock", 5, subdir);
@@ -401,10 +404,10 @@ public class GameScenario {
 		modifyConstruction(livestock, "slaughterhouse.ini", "$COST_RESOURCE_AUTO wall_brick", 0.2, subdir);
 		modifyConstruction(livestock, "slaughterhouse.ini", "$COST_RESOURCE_AUTO wall_panels", 0.6, subdir);
 		modifyConstruction(livestock, "slaughterhouse.ini", "$COST_RESOURCE_AUTO roof_steel", 1, subdir);
-		map(22, 1, "Slaughterhouse");
-		map(22, 2, w);
-		map(22, 3, w * c1);
-		map(22, 7, w * p1);
+		map(23, 1, "Slaughterhouse");
+		map(23, 2, w);
+		map(23, 3, w * c1);
+		map(23, 7, w * p1);
 
 		Industry acm = new Industry("Advanced Construction Materials");
 		industries.add(acm);
@@ -421,11 +424,11 @@ public class GameScenario {
 		modifyConstruction(acm, "steel_mill.ini", "$COST_RESOURCE_AUTO wall_brick", 1, subdir);
 		modifyConstruction(acm, "steel_mill.ini", "$COST_RESOURCE_AUTO wall_concrete", 1, subdir);
 		modifyConstruction(acm, "steel_mill.ini", "$COST_RESOURCE_AUTO tech_steel", 0.7, subdir);
-		map(9, 1, "Steel Mill");
-		map(9, 2, w);
-		map(9, 3, w * c1);
-		map(9, 4, w * c2);
-		map(9, 7, w * p1);
+		map(10, 1, "Steel Mill");
+		map(10, 2, w);
+		map(10, 3, w * c1);
+		map(10, 4, w * c2);
+		map(10, 7, w * p1);
 
 		w = modifyWorkers(acm, "concrete_plant.ini", "$WORKERS_NEEDED", 5, subdir);
 		p1 = modifyProduction(acm, "concrete_plant.ini", "$PRODUCTION concrete", 35, subdir);
@@ -439,11 +442,11 @@ public class GameScenario {
 		modifyConstruction(acm, "concrete_plant.ini", "$COST_RESOURCE_AUTO wall_brick", 0.8, subdir);
 		modifyConstruction(acm, "concrete_plant.ini", "$COST_RESOURCE_AUTO wall_steel", 0.2, subdir);
 		modifyConstruction(acm, "concrete_plant.ini", "$COST_RESOURCE_AUTO tech_steel", 0.8, subdir);
-		map(17, 1, "Concrete Plant");
-		map(17, 2, w);
-		map(17, 3, w * c1);
-		map(17, 4, w * c2);
-		map(17, 7, w * p1);
+		map(18, 1, "Concrete Plant");
+		map(18, 2, w);
+		map(18, 3, w * c1);
+		map(18, 4, w * c2);
+		map(18, 7, w * p1);
 
 		w = modifyWorkers(acm, "panels_factory.ini", "$WORKERS_NEEDED", 65, subdir);
 		p1 = modifyProduction(acm, "panels_factory.ini", "$PRODUCTION prefabpanels", 1.1, subdir);
@@ -456,11 +459,11 @@ public class GameScenario {
 		modifyConstruction(acm, "panels_factory.ini", "$COST_RESOURCE_AUTO ground_asphalt", 1, subdir);
 		modifyConstruction(acm, "panels_factory.ini", "$COST_RESOURCE_AUTO wall_brick", 1, subdir);
 		modifyConstruction(acm, "panels_factory.ini", "$COST_RESOURCE_AUTO tech_steel", 1, subdir);
-		map(32, 1, "Prefab Factory");
-		map(32, 2, w);
-		map(32, 3, w * c1);
-		map(32, 4, w * c2);
-		map(32, 7, w * p1);
+		map(33, 1, "Prefab Factory");
+		map(33, 2, w);
+		map(33, 3, w * c1);
+		map(33, 4, w * c2);
+		map(33, 7, w * p1);
 
 		Industry clothing = new Industry("Clothing");
 		industries.add(clothing);
@@ -476,11 +479,11 @@ public class GameScenario {
 		modifyConstruction(clothing, "fabric_factory.ini", "$COST_RESOURCE_AUTO wall_concrete", 0.1, subdir);
 		modifyConstruction(clothing, "fabric_factory.ini", "$COST_RESOURCE_AUTO wall_brick", 1, subdir);
 		modifyConstruction(clothing, "fabric_factory.ini", "$COST_RESOURCE_AUTO tech_steel", 0.1, subdir);
-		map(27, 1, "Fabric Factory");
-		map(27, 2, w);
-		map(27, 3, w * c1);
-		map(27, 4, w * c2);
-		map(27, 7, w * p1);
+		map(28, 1, "Fabric Factory");
+		map(28, 2, w);
+		map(28, 3, w * c1);
+		map(28, 4, w * c2);
+		map(28, 7, w * p1);
 
 		w = modifyWorkers(clothing, "clothing_factory.ini", "$WORKERS_NEEDED", 80, subdir);
 		p1 = modifyProduction(clothing, "clothing_factory.ini", "$PRODUCTION clothes", 0.01, subdir); // was 0.015
@@ -490,10 +493,10 @@ public class GameScenario {
 		modifyConstruction(clothing, "clothing_factory.ini", "$COST_RESOURCE_AUTO ground_asphalt", 1, subdir);
 		modifyConstruction(clothing, "clothing_factory.ini", "$COST_RESOURCE_AUTO wall_concrete", 0.7, subdir);
 		modifyConstruction(clothing, "clothing_factory.ini", "$COST_RESOURCE_AUTO wall_brick", 0.2, subdir);
-		map(30, 1, "Clothing Factory");
-		map(30, 2, w);
-		map(30, 3, w * c1);
-		map(30, 7, w * p1);
+		map(31, 1, "Clothing Factory");
+		map(31, 2, w);
+		map(31, 3, w * c1);
+		map(31, 7, w * p1);
 
 		Comparator<Industry> compareBySize = (Industry i1, Industry i2) -> new Double(i1.size).compareTo(i2.size);
 		Comparator<Industry> compareByFame = (Industry i1, Industry i2) -> new Double(i1.fame).compareTo(i2.fame);
@@ -523,7 +526,7 @@ public class GameScenario {
 
 		System.out.print("\n");
 		FileWriter fw = new FileWriter(BUILDING_DIR + File.separator + subdir + File.separator + "data.tsv");
-		for (int r = 5; r < 33; r++) {
+		for (int r = 5; r < 34; r++) {
 			for (int c = 1; c < 9; c++) {
 				Map<Integer, String> row = output.get(r);
 				if (row == null) {
