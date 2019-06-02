@@ -1,7 +1,7 @@
-# workers-and-resources-insane-mode
-Scenario creation mod for the game "Workers &amp; Resources: Soviet Republic". It creates a unique set of economics for every new game by changing building production rates and costs.
+# Productivity mod for Workers & Resources: Soviet Republic
+A scenario creation mod for the game "Workers &amp; Resources: Soviet Republic". It creates a unique set of economics for every new game by changing building production rates and costs.
 
-In its base confiuration, makes the game harder but more varied than in the base game. The script can also be used to make the game easier or generate challenging economic situations.
+In its base confiuration, it makes the game harder but more varied. The script can also be used to make the game easier or generate extremely challenging economic situations.
 
 # Overview
 
@@ -9,7 +9,7 @@ Do you want a fresh challenge every time you play Workers & Resources: Soviet Re
 
 Once you've played several times, you'll notice that the way you "should" play, and the way you should start, is probably quite similar every time. This mod's goal is to give you a fresh set of economic challenges every time you play.
 
-The mod changes your buildings so that every game, some industries will be more or less productive than others, and costs will be different. It also is intended to make the game more challenging, but it can also be run to make the game easier.
+The mod changes your buildings so that every game, some industries will be more or less productive than others, and costs will be different. It is intended to make the game harder, but it can also be configured to make the game easier.
 
 In one scenario, you may be a nation who can produce crops and livestock very well, but needs to import power and steel; in another, you may be a nation who can process oil well but can't mine it very effectively; in another, coal power plants may cost 1.5m rubles. There are endless possibilities!
 
@@ -155,7 +155,7 @@ This is telling you which industries "should" be most productive, most large (nu
 
 6. Copy all of the ".ini" files from this directory into your actual game directory. **This will permanently change the game configuration for these buildings! Make sure you took a safe backup above. If you want to revert to the vanilla game, all you do is copy the .ini files from your backup back into the game directory.**
 
-7. Fire up the game and play! I recommend playing on full hard mode, because if you don't find hard mode too easy, why would you be trying to run under insane mode?
+7. Fire up the game and play! I recommend playing on full hard mode, because if you don't find hard mode too easy, why would you be trying to change the economics of the game?
 
 # Planning Spreadsheet
 
@@ -185,11 +185,15 @@ Here are some ways to generate interesting scenarios.
 
     java -classpath workersandresources.jar com.jk.workersandresources.GameScenario WORKING_DIRECTORY 0.8 0.3 0.15
 
-The default configuration. It makes industries 80%-110% productive for the most part. Generally only maybe 2-4 industries will be solidly profitable enough to build your start round. Significantly more difficult than vanilla, but most scenarios seem to have a clear path to growth.
+The default configuration. It makes industries 50%-110% productive for the most part. Generally only maybe 2-4 industries will be solidly profitable enough to build your start round. Significantly more difficult than vanilla, but most scenarios should have a clear path to growth.
+
+    java -classpath workersandresources.jar com.jk.workersandresources.GameScenario WORKING_DIRECTORY 1 0.2 0.1
+
+A slight variation from vanilla. Industries will have the same scale as the base game, within about 20% of normal productivity. Coal, oil, livestock, and clothing will still be nerfed.
 
     java -classpath workersandresources.jar com.jk.workersandresources.GameScenario WORKING_DIRECTORY 0.5 0.3 0.1
 
-Extremely difficult, industries are scaled to an average of 50% productivity, most buildings ranging from 20%-80% productivity. Many industries will be unprofitable or have extremely low productivity. If you do find a way to get to profitability, it will likely be a very long slog to building a great nation!
+Insanely difficult, industries are scaled to an average of 50% productivity, most buildings ranging from 20%-80% productivity. Many industries will be unprofitable or have extremely low productivity. If you do find a way to get to profitability, it will likely be a very long slog to building a great nation!
 
     java -classpath workersandresources.jar com.jk.workersandresources.GameScenario WORKING_DIRECTORY 1.5 0.5 0.25
     
