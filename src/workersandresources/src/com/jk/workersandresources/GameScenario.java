@@ -113,15 +113,15 @@ public class GameScenario {
 		System.out.println("Setting BUILDING_DIR to " + BUILDING_DIR);
 
 		if (args.length > 1) {
-			MEANPRODUCTIVITY = Double.parseDouble(args[0]);
+			MEANPRODUCTIVITY = Double.parseDouble(args[1]);
 		}
 		System.out.println("Setting mean productivity multiplier to " + MEANPRODUCTIVITY);
 		if (args.length > 2) {
-			PSD = Double.parseDouble(args[1]);
+			PSD = Double.parseDouble(args[2]);
 		}
 		System.out.println("Setting industry standard deviation to " + PSD);
 		if (args.length > 3) {
-			SD = Double.parseDouble(args[2]);
+			SD = Double.parseDouble(args[3]);
 		}
 		System.out.println("Setting building standard deviation to " + SD);
 
