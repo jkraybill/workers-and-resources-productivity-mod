@@ -1,5 +1,5 @@
 # workers-and-resources-insane-mode
-Mod scripts for the game "Workers &amp; Resources: Soviet Republic". Makes the game very difficult.
+Mod scripts for the game "Workers &amp; Resources: Soviet Republic". In its base confiuration, makes the game harder but more varied than in the base game. The script can also be used to make the game easier or generate challenging economic situations.
 
 # What this mod does
 
@@ -52,13 +52,13 @@ It lowers baseline production for a few buildings I think are overpowered:
 1. Oil Refinery: daily production decreased from 125t oil and 75t bitumen to 100t oil and 60t bitumen.
 1. Clothing Factory: daily production decreased from 1.2t to 0.8t.
 
-Then, it randomly adjusts the productivity and size of each industry by a configurable amount. The adjustments use a normal distribution with a mean (MEAN_PRODUCTIVITY_MULTIPLIER below) and a deviation (INDUSTRY_DEVIATION) below. Using the default values of 0.8 and 0.3, this means most industries will be adjusted to between 50% and 110% of the baseline values.
+Then, it randomly adjusts the productivity and size of each industry by a configurable amount. The adjustments use a normal distribution with a mean (MEAN_PRODUCTIVITY_MULTIPLIER below) and a deviation (INDUSTRY_DEVIATION) below. Using the default values of 0.8 and 0.3, this means most industries will be adjusted to between 50% and 110% of the baseline values (that's an average of 80% with a standard deviation of 30%).
 
 Then, it randomly adjusts the size (workers required), productivity, and cost of each building by a configurable amount. The productivity and size value for the given industry is the baseline, and then is randomized by the BUILDING_DEVIATION value below. So if wood had received a 90% productivity and 60% size value, using the default BUILDING_DEVIATION of 0.15, both the Woodcutting Post and Sawmill would be expected to be between 75%-110% productive per worker, and have a size of 45%-75%. The building cost is also adjusted using BUILDING_DEVIATION, but uses industry productivity multiplied by size to determine the expected value. So a very productive, large factory of 150% worker productivity and 150% size would generally cost about 225% of its baseline value.
 
-Since these are randomized per step, the end result is a unique set of economics every game. The ratios of production, and capital costs will vary wildly every time you play. **Some scenarios may be simply unwinnable when using the default values**.
+Since these are randomized per step, the end result is a unique set of economics every game. The ratios of production, and capital costs will vary wildly every time you play. **Some scenarios may be difficult to the point of being unwinnable when using the default values**.
 
-If you want a milder experience, use lower numbers when generating your nation. You can even make it easier (see below)
+If you want a milder experience, use lower numbers when generating your nation. You can even make it easier (see "Example values" below).
 
 # How to use
 
