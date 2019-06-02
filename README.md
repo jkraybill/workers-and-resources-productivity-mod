@@ -62,7 +62,7 @@ If you want a milder experience, use lower numbers when generating your nation.
 
 # How to use
 
-1. Download "economics.xlsx" (your spreadsheet for planning) and "dist/workersandresources.jar" (the Java file that does the modding).
+1. Download "economics.xlsx" (your spreadsheet for planning) and "workersandresources.jar" (the Java file that does the modding).
 2. Make a backup copy of your "buildings_types" directory from Workers & Resources: Soviet Republic into a safe place. The "buildings_types" directory is found at \[STEAM_DIRECTORY\]\steamapps\common\SovietRepublic\media_soviet\buildings_types
 3. Make a working copy of your "buildings_types" directory from Workers & Resources: Soviet Republic into a different place. (IMPORTANT! DO NOT USE MODDING SCRIPTS DIRECTLY ON YOUR GAME DIRECTORY, that's always a bad idea.)
 4. Run the script using Java. The usage is
