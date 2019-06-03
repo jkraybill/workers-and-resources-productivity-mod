@@ -77,6 +77,10 @@ Since these are randomized per step, the end result is a unique set of economics
 
 If you want a milder experience, use lower numbers when generating your nation. You can even make it easier (see "Example values" below).
 
+# Requirements
+
+[Java 8 or higher](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+
 # How to use
 
 1. Download "economics.xlsx" (your spreadsheet for planning) and "workersandresources.jar" (the Java file that does the modding).
