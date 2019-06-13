@@ -157,7 +157,7 @@ This is telling you which industries "should" be most productive, most large (nu
 
 ![screenshot](screenshot1.png)
 
-6. Copy all of the ".ini" files from this directory into your actual game directory. **This will permanently change the game configuration for these buildings! Make sure you took a safe backup above. If you want to revert to the vanilla game, all you do is copy the .ini files from your backup back into the game directory.**
+6. Copy all of the ".ini" files from this directory into your actual game "buildings_types" directory. **This will permanently change the game configuration for these buildings! Make sure you took a safe backup above. If you want to revert to the vanilla game, all you do is copy the .ini files from your backup back into the game directory.**
 
 7. Fire up the game and play! I recommend playing on full hard mode, because if you don't find hard mode too easy, why would you be trying to change the economics of the game?
 
