@@ -189,7 +189,7 @@ Here are some ways to generate interesting scenarios.
 
     java -classpath workersandresources.jar com.jk.workersandresources.GameScenario WORKING_DIRECTORY 0.8 0.3 0.15
 
-The default configuration. It makes industries 50%-110% productive for the most part. Generally only maybe 2-4 industries will be solidly profitable enough to build your start round. Significantly more difficult than vanilla, but most scenarios should have a clear path to growth.
+The default configuration. It makes industries 50%-110% productive for the most part. Generally only maybe 2-4 industries will be solidly profitable enough to use as your starting point. Significantly more difficult than vanilla, but most scenarios should have a clear path to growth.
 
     java -classpath workersandresources.jar com.jk.workersandresources.GameScenario WORKING_DIRECTORY 1 0.2 0.1
 
