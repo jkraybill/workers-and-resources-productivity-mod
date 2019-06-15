@@ -77,6 +77,10 @@ Since these are randomized per step, the end result is a unique set of economics
 
 If you want a milder experience, use lower numbers when generating your nation. You can even make it easier (see "Example values" below).
 
+# Requirements
+
+[Java 8 or higher](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+
 # How to use
 
 1. Download "economics.xlsx" (your spreadsheet for planning) and "workersandresources.jar" (the Java file that does the modding).
@@ -153,7 +157,7 @@ This is telling you which industries "should" be most productive, most large (nu
 
 ![screenshot](screenshot1.png)
 
-6. Copy all of the ".ini" files from this directory into your actual game directory. **This will permanently change the game configuration for these buildings! Make sure you took a safe backup above. If you want to revert to the vanilla game, all you do is copy the .ini files from your backup back into the game directory.**
+6. Copy all of the ".ini" files from this directory into your actual game "buildings_types" directory. **This will permanently change the game configuration for these buildings! Make sure you took a safe backup above. If you want to revert to the vanilla game, all you do is copy the .ini files from your backup back into the game directory.**
 
 7. Fire up the game and play! I recommend playing on full hard mode, because if you don't find hard mode too easy, why would you be trying to change the economics of the game?
 
@@ -185,7 +189,7 @@ Here are some ways to generate interesting scenarios.
 
     java -classpath workersandresources.jar com.jk.workersandresources.GameScenario WORKING_DIRECTORY 0.8 0.3 0.15
 
-The default configuration. It makes industries 50%-110% productive for the most part. Generally only maybe 2-4 industries will be solidly profitable enough to build your start round. Significantly more difficult than vanilla, but most scenarios should have a clear path to growth.
+The default configuration. It makes industries 50%-110% productive for the most part. Generally only maybe 2-4 industries will be solidly profitable enough to use as your starting point. Significantly more difficult than vanilla, but most scenarios should have a clear path to growth.
 
     java -classpath workersandresources.jar com.jk.workersandresources.GameScenario WORKING_DIRECTORY 1 0.2 0.1
 
