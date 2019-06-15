@@ -6,11 +6,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -23,9 +25,10 @@ public class GameScenario {
 	//private static String BUILDING_DIR = "F:\\Dropbox\\personal\\games\\workersandresources\\mods\\scenario\\buildings_types";
 	private static String BUILDING_DIR;
 
-	public static final DecimalFormat df0 = new DecimalFormat("0");
-	public static final DecimalFormat df2 = new DecimalFormat("0.00");
-	public static final DecimalFormat df3 = new DecimalFormat("0.000");
+	private static final DecimalFormatSymbols symbols = new DecimalFormatSymbols(Locale.US);
+	public static final DecimalFormat df0 = new DecimalFormat("0", symbols);
+	public static final DecimalFormat df2 = new DecimalFormat("0.00", symbols);
+	public static final DecimalFormat df3 = new DecimalFormat("0.000", symbols);
 
 	public static double MEANPRODUCTIVITY = 0.8; // mean for industrial productivity & size
 	public static double PSD = 0.3; // standard deviation +/- for productivity & size
