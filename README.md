@@ -86,7 +86,7 @@ If you want a milder experience, use lower numbers when generating your nation. 
 1. Download "economics.xlsx" (your spreadsheet for planning) and "workersandresources.jar" (the Java file that does the modding).
 2. Make a backup copy of your "buildings_types" directory from Workers & Resources: Soviet Republic into a safe place. The "buildings_types" directory is found at \[STEAM_DIRECTORY\]\steamapps\common\SovietRepublic\media_soviet\buildings_types
 3. Make a working copy of your "buildings_types" directory from Workers & Resources: Soviet Republic into a different place. (IMPORTANT! DO NOT USE MODDING SCRIPTS DIRECTLY ON YOUR GAME DIRECTORY, that's always a bad idea.)
-4. Run the script using Java. The usage is
+4. Run the script using Java. You will need to do this by typing in a command into a command-line prompt. In Windows, you get there by finding the "Command Prompt" (cmd.exe) app in the Start menu. The command you will need to type in is:
 
     java -classpath workersandresources.jar com.jk.workersandresources.GameScenario WORKING_DIRECTORY MEAN_PRODUCTIVITY_MULTIPLIER INDUSTRY_DEVIATION BUILDING_DEVIATION
   
