@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>JK's Productivity Mod for Workers & Resources: Soviet Republic</title>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+		<!-- Bootstrap core CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<!-- Material Design Bootstrap -->
+		<link href="css/mdb.min.css" rel="stylesheet">
+
+		<style type="text/css">
+			body {
+				padding:1em;
+			}
+			.card {
+				margin-bottom: 1em;
+			}
+			.scenario, .step3, .step4, .step5 {
+				opacity:0.4;
+			}
+		</style>
+
+	</head>
+	<body>
+
+		<div class="card" style="width:100%;">
+			<img src="img/header.png" class="card-img-top" alt="Header">
+			<div class="card-body">
+				<h5 class="card-title">JK's Productivity Mod for Workers & Resources: Soviet Republic</h5>
+				<p class="card-text">A scenario creation mod for the game "Workers & Resources: Soviet Republic". It creates a unique set of economics for every new game by changing building production rates and costs.</p>
+				<p class="card-text">In its default configuration, it makes the game harder but more varied. It can also be used to make the game easier or generate extremely challenging economic situations.</p>
+				<p class="card-text"><b>This mod requires you to back up, upload, and modify core game files. If you are not comfortable with how to do that, you probably shouldn't use this mod.</b> Sorry!</p>
+				<p class="card-text">For detailed notes on what this mod does, and the industries it re-balances, view the <a href="https://github.com/jkraybill/workers-and-resources-productivity-mod" target="_blank">release notes for the old Java version.</a></p>
+			</div>
+		</div>
+
+		<div class="card" style="width:100%;">
+		  <div class="card-body">
+			<h5 class="card-title">Step 1: Select Your Scenario Preferences</h5>
+			<p class="card-text">Set the low and high productivity levels for production industries. The lower the values, the harder the scenario.</p>
+			<p class="card-text">This controls how much each industry produces (per worker, and per building), relative to the game's baseline. Suggested defaults for first-time users of the mod are <b>50% low, 110% high</b>.</p>
+			<p class="card-text">These are <b>not</b> minimum/maximum values! Actual productivity can be lower or higher but is rare (you're defining a standard deviation).</p>
+
+			<label for="minProd">Industry Productivity (Low)</label> = <b><span id="minProdVal">50%</span></b>
+			<input type="range" class="custom-range" id="minProd" min="10" max="200" value="50" />
+			<label for="maxProd">Industry Productivity (High)</label> = <b><span id="maxProdVal">110%</span></b>
+			<input type="range" class="custom-range" id="maxProd" min="10" max="200" value="110" />
+
+			<a class="btn btn-light" data-toggle="collapse" href="#advanced1" aria-expanded="false" aria-controls="advanced1">
+				Advanced
+			</a>
+
+			<div class="collapse" id="advanced1" style="margin-top:1em;">
+				<p><i>These are the actual values used by the engine. They are set by the two sliders above but you can override them if you want more granular control over the scenario.</i></p>
+
+				<label for="industryMean"><a href="#" data-toggle="tooltip" title="This controls the baseline mean productivity per industry. Once the industry productivity is set for each industry, the building standard deviation is applied per building in that industry.">Industry Productivity Mean</a></label>
+				 = <b><span id="industryMeanVal">80%</span></b>
+				<input type="range" class="custom-range" id="industryMean" min="10" max="200" value="80" />
+
+				<label for="industrySd"><a href="#" data-toggle="tooltip" title="The standard deviation for each industry's productivity. An industry productivity mean of 50% with a standard deviation of 10% means that most industries will be between 40%-60% productive.">Industry Productivity Standard Devation</a></label>
+				 = <b><span id="industrySdVal">23%</span></b>
+				<input type="range" class="custom-range" id="industrySd" min="0" max="100" value="23" />
+
+				<label for="bldgSd"><a href="#" data-toggle="tooltip" title="The standard deviation for each building within an industry. So if the industry received a productivity of 50%, and building productivity standard deviation is 10%, most buildings would be between 40%-60% productive. Setting this to a lower value means that buildings will have a more consistent productivity throughout a given industry.">Building Productivity Standard Deviation</a></label>
+				 = <b><span id="bldgSdVal">8%</span></b>
+				<input type="range" class="custom-range" id="bldgSd" min="0" max="100" value="8" />
+			</div>
+
+		  </div>
+		</div>
+
+		<div class="card" style="width:100%;">
+		  <div class="card-body">
+			<h5 class="card-title">Step 2: Generate a new nation!</h5>
+			<p class="card-text">Clicking "Generate" below will create a new random scenario using the settings above. You can generate multiple times to get a scenario that you want to play.</p>
+			<button type="button" class="btn btn-primary" id="genButton">Generate</button>
+		  </div>
+		</div>
+
+		<div class="card" style="width:100%;">
+		  <div class="card-body">
+			<h5 class="card-title scenario">Your New Scenario: "<span class="nationName">Scenario 1</span>"</h5>
+
+			<p class="scenario">This mod modifies the production, size, and costs of most production buildings in the game. In the chart below, the "best" (large and high productivity) industries are on top.</p>
+			<p class="scenario"><b>Industries near the top will have higher construction costs (relative to the base game) than industries lower on the list.</b></p>
+			<p class="scenario">"Productivity" means rough productivity per worker (or work unit, for unmanned buildings like farms or pumpjacks). <b>Low productivity industries often lead to unprofitable export chains.</b></p>
+			<p class="scenario">"Size" means the number of workers a building can support.</p>
+			<p class="scenario">A value of "100" corresponds to the base game settings; a value of "200" means twice as productive or large as the normal game.</p>
+			<p class="scenario">You will want to choose starter industries that have a decent balance between cost, productivity, and size. Construction cost usually matters in the early game, but you also need to find productive chains to make profitable exports.</p>
+			<canvas id="chart" style="max-width: 1024px;"></canvas>
+		  </div>
+		</div>
+
+		<div class="card" style="width:100%;">
+		  <div class="card-body">
+			<h5 class="card-title step3">Step 3: Upload Your Building Files</h5>
+			<p class="card-text step3">Click the upload button below, and select ALL of the <b>".ini"</b> files from your Workers &amp; Resources <b>"buildings_types"</b> directory. (You can upload all the files in this directory but it may cause browser memory issues in your browser.)</p>
+			<p class="card-text step3">The default location for this is something like <b>C:\Program Files (x86)\Steam\steamapps\common\SovietRepublic\media_soviet\buildings_types</b> but depends on your computer.</p>
+			<input type="file" id="file" name="file" multiple class="btn btn-primary"/>
+		  </div>
+		</div>
+
+		<div class="card" style="width:100%;">
+		  <div class="card-body">
+			<h5 class="card-title step4">Step 4: Download The Zip</h5>
+			<p class="card-text step4">Your browser should have automatically downloaded a drop-in replacement for the modded game files, called "<b><span class="nationName">nation-name</span>.zip</b>". If it didn't do that, please <a href="https://github.com/jkraybill/workers-and-resources-productivity-mod/issues" target="_blank">file an issue</a> and note your browser and OS version. (At the moment, I'm only testing for Chrome under Windows but it should work in other modern browsers.)</p>
+			<p class="card-text step4">Your browser may warn or even block you from downloading zip files. If it does this, you'll need to click "Keep" or change your browser security settings.</p>
+			<p class="card-text step4">The zip file should contain 48 files: 24 modded game buildings, and 24 backup copies of what you uploaded for those files.</p>
+			<p class="card-text step4">If you didn't get a zip, or if you got a zip with less than 48 files, you may have uploaded an incomplete or incorrect set of files.</p>
+		  </div>
+		</div>
+
+		<div class="card" style="width:100%;">
+		  <div class="card-body">
+			<h5 class="card-title step4">Step 5: Backup Your Building Files</h5>
+			<p class="card-text step4">Next, <b>make a local backup copy of the buildings_types directory you uploaded from in Step 3</b>! This mod (like any other replacement mod) can permanently mess up your game if something goes wrong, so make sure you keep backups.</p>
+			<p class="card-text step4"><b>You will need to revert your building files to your backup if you want to go back to the vanilla game setup in the future.</b></p>
+		  </div>
+		</div>
+
+		<div class="card" style="width:100%;">
+		  <div class="card-body">
+			<h5 class="card-title step5">Step 6: Replace Your Building Files</h5>
+			<p class="card-text step5">Unzip the files from the zip into your <b>buildings_types</b> directory, replacing the old files.</p>
+			<p class="card-text step5">The zip file includes ".bak" files which are the versions of the files you uploaded; these don't need to be copied but won't hurt.</p>
+		  </div>
+		</div>
+
+		<div class="card" style="width:100%;">
+		  <div class="card-body">
+			<h5 class="card-title step5">Step 7: Play!</h5>
+			<p class="card-text step5">The next time you start Workers &amp; Resources, you'll be playing with these settings.</p>
+			<p class="card-text step5"><b>These settings will affect any saved games you load too. Make sure to revert to your backup files if you want to load saves that don't use modded settings.</b></p>
+		  </div>
+		</div>
+
+		<div class="card" style="width:100%;">
+		  <div class="card-body">
+			<h5 class="card-title">Card title</h5>
+			<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+			<a href="#" class="btn btn-primary">Go somewhere</a>
+		  </div>
+		</div>
+
+		<div class="card" style="width:100%;">
+		  <div class="card-body">
+			<h5 class="card-title">Credits</h5>
+			<p class="card-text">Thanks to <a href="https://www.youtube.com/channel/UCaYMzi5hDyouLX64ofGC18A" target="_blank">Rever</a> for doing <a href="https://www.youtube.com/watch?v=Ptiovu3KPMM" target="_blank">the first YouTube walkthrough</a> with the mod.</p>
+			<p class="card-text"><a href="https://unsplash.com/photos/y73X9YA1zfE" target="_blank">Header photo</a> by Max Hermansson on Unsplash</p>
+		  </div>
+		</div>
+
+
+
+		<!-- JQuery -->
+		<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+		<!-- Bootstrap tooltips -->
+		<script type="text/javascript" src="js/popper.min.js"></script>
+		<!-- Bootstrap core JavaScript -->
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<!-- MDB core JavaScript -->
+		<script type="text/javascript" src="js/mdb.min.js"></script>
+
+		<script type="text/javascript" src="lib/jszip.min.js"></script>
+		<script type="text/javascript" src="lib/FileSaver.min.js"></script>
+		<script type="text/javascript" src="lib/randomutil.js"></script>
+		<script type="text/javascript" src="lib/main.js"></script>
+		<script type="text/javascript" src="lib/industry.js"></script>
+	</body>
+</html>
