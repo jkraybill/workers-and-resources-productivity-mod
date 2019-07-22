@@ -251,41 +251,45 @@ $(function() {
 });
 
 function modifyWorkers(ind, text, key, mean) {
-	return modify(text, key, mean * ind.size, mean * ind.size * SD, 1, df0, "");
+	return modify(text, key, mean * ind.size, mean * ind.size * SD, 1, df0, "", 1);
 }
 
 function modifyProduction(ind, text, key, mean) {
-	return modify(text, key, mean, SD * mean, ind.productivity, df3, "");
+	return modify(text, key, mean, SD * mean, ind.productivity, df3, "", 1);
 }
 
 function modifyConsumption(ind, text, key, mean) {
-	return modify(text, key, mean, SD * mean, 1, df3, "");
+	return modify(text, key, mean, SD * mean, 1, df3, "", 1);
 }
 
 function modifyConstruction(ind, text, key, mean) {
-	return modifyConstructionImpl(ind, text, key, mean, "");
+	return modifyConstructionImpl(ind, text, key, mean, "", 1);
 }
 
-function modifyConstructionImpl(ind, text, key, mean, suffix) {
-	return modify(text, key, mean, SD * mean, ind.fame, df3, suffix);
+function modifyConstructionImpl(ind, text, key, mean, suffix, matchIndex) {
+	return modify(text, key, mean, SD * mean, ind.fame, df3, suffix, matchIndex);
 }
 
-function modify(body, key, mean, deviationUnit, multiplier, df, suffix) {
+function modify(body, key, mean, deviationUnit, multiplier, df, suffix, matchIndex) {
 
 	var gauss = gaussian(mean, deviationUnit);
 	var newval = Math.max(mean * 0.1, gauss) * multiplier; // don't accept gaussian values less than 10% of original (esp not negative ones)
 
 	suffix = (suffix === "") ? "" : (" " + suffix);
-	body = body.replace(new RegExp(RegExp.escape(key) + ".*"), key + " " + df.format(newval) + suffix);
+	var t = 0;
+	body = body.replace(new RegExp(RegExp.escape(key) + ".*", "g"), function (match) {
+		t++;
+		return (t === matchIndex) ? (key + " " + df.format(newval) + suffix) : match;
+	});
 
 	console.log(key + ": " + df.format(newval) + suffix + " (" + df2.format(gauss) + " against mean " + df2.format(mean) + " sd " + df2.format(deviationUnit) + " and multiplier " + df2.format(multiplier) + ")");
 	tempFileOutput = newval;
 	return body;
 }
 
-var NAME1 = [ "Udzek", "Durk", "Vech", "Blaj", "Mal", "Af" ];
-var NAME2 = [ "", "men", "ik", "ban", "ghan", "slav", "oslav" ];
-var NAME3 = [ "ia", "istan", "akia" ];
+var NAME1 = [ "Udzek", "Turj", "Czev", "Tar", "Ala", "Ak", "Ar", "Uk", "Ug", "Bur", "Ro", "Mol", "Es", "Aker" ];
+var NAME2 = [ "", "men", "ik", "ban", "ghan", "slav", "oslav", "oslov", "stotz", "dov", "on", "v" ];
+var NAME3 = [ "ia", "istan", "akia", "a" ];
 
 function getNationName() {
 	return getRandomArrayElement(NAME1) + getRandomArrayElement(NAME2) + getRandomArrayElement(NAME3);
@@ -415,19 +419,19 @@ function processFile(filename, text) {
 		map(15, 7, w * p1);
 		return text;
 	} else if (filename == "gravel_processing.ini") {
-		w = modifyWorkers(gravel, text, "$WORKERS_NEEDED", 15);
+		text = modifyWorkers(gravel, text, "$WORKERS_NEEDED", 15);
 		var w = tempFileOutput;
-		p1 = modifyProduction(gravel, text, "$PRODUCTION gravel", 5.5);
+		text = modifyProduction(gravel, text, "$PRODUCTION gravel", 5.5);
 		var p1 = tempFileOutput;
-		c1 = modifyConsumption(gravel, text, "$CONSUMPTION rawgravel", 8);
+		text = modifyConsumption(gravel, text, "$CONSUMPTION rawgravel", 8);
 		var c1 = tempFileOutput;
-		modifyConstruction(gravel, text, "$CONSUMPTION_PER_SECOND eletric", 0.4);
-		modifyConstruction(gravel, text, "$COST_RESOURCE_AUTO ground_asphalt", 1);
-		modifyConstruction(gravel, text, "$COST_RESOURCE_AUTO wall_concrete", 0.8);
-		modifyConstruction(gravel, text, "$COST_RESOURCE_AUTO wall_steel", 0.35);
-		modifyConstruction(gravel, text, "$COST_RESOURCE_AUTO tech_steel", 0.35);
-		modifyConstruction(gravel, text, "$STORAGE_IMPORT RESOURCE_TRANSPORT_GRAVEL", 10);
-		modifyConstruction(gravel, text, "$STORAGE_EXPORT RESOURCE_TRANSPORT_GRAVEL", 145);
+		text = modifyConstruction(gravel, text, "$CONSUMPTION_PER_SECOND eletric", 0.4);
+		text = modifyConstruction(gravel, text, "$COST_RESOURCE_AUTO ground_asphalt", 1);
+		text = modifyConstruction(gravel, text, "$COST_RESOURCE_AUTO wall_concrete", 0.8);
+		text = modifyConstruction(gravel, text, "$COST_RESOURCE_AUTO wall_steel", 0.35);
+		text = modifyConstruction(gravel, text, "$COST_RESOURCE_AUTO tech_steel", 0.35);
+		text = modifyConstruction(gravel, text, "$STORAGE_IMPORT RESOURCE_TRANSPORT_GRAVEL", 10);
+		text = modifyConstruction(gravel, text, "$STORAGE_EXPORT RESOURCE_TRANSPORT_GRAVEL", 145);
 		map(16, 1, "Gravel Processing");
 		map(16, 2, w);
 		map(16, 3, w * c1);
@@ -455,8 +459,8 @@ function processFile(filename, text) {
 		var c1 = tempFileOutput;
 		text = modifyConstruction(oil, text, "$CONSUMPTION_PER_SECOND eletric", 0.21);
 		text = modifyConstruction(oil, text, "$STORAGE_IMPORT RESOURCE_TRANSPORT_OIL", 450);
-		text = modifyConstruction(oil, text, "$STORAGE_EXPORT_SPECIAL RESOURCE_TRANSPORT_OIL", 340, "fuel");
-		text = modifyConstruction(oil, text, "$STORAGE_EXPORT_SPECIAL RESOURCE_TRANSPORT_OIL", 250, "bitumen");
+		text = modifyConstructionImpl(oil, text, "$STORAGE_EXPORT_SPECIAL RESOURCE_TRANSPORT_OIL", 340, "fuel", 1);
+		text = modifyConstructionImpl(oil, text, "$STORAGE_EXPORT_SPECIAL RESOURCE_TRANSPORT_OIL", 250, "bitumen", 2);
 		text = modifyConstruction(oil, text, "$COST_RESOURCE_AUTO ground_asphalt", 1);
 		text = modifyConstruction(oil, text, "$COST_RESOURCE_AUTO tech_steel", 0.8);
 		map(20, 1, "Oil Refinery");
@@ -519,7 +523,7 @@ function processFile(filename, text) {
 		var p1 = tempFileOutput;
 		text = modifyConsumption(energy, text, "$CONSUMPTION coal", 0.6);
 		var c1 = tempFileOutput;
-		text = modifyConstruction(energy, text, "$STORAGE_IMPORT_SPECIAL RESOURCE_TRANSPORT_GRAVEL", 100, "coal");
+		text = modifyConstructionImpl(energy, text, "$STORAGE_IMPORT_SPECIAL RESOURCE_TRANSPORT_GRAVEL", 100, "coal", 1);
 		text = modifyConstruction(energy, text, "$COST_RESOURCE_AUTO ground_asphalt", 1);
 		text = modifyConstruction(energy, text, "$COST_RESOURCE_AUTO wall_steel", 0.9);
 		text = modifyConstruction(energy, text, "$COST_RESOURCE_AUTO wall_concrete", 0.8);
@@ -537,7 +541,7 @@ function processFile(filename, text) {
 		var p1 = tempFileOutput;
 		text = modifyConsumption(cm, text, "$CONSUMPTION coal", 0.45);
 		var c1 = tempFileOutput;
-		text = modifyConstruction(cm, text, "$STORAGE_IMPORT_SPECIAL RESOURCE_TRANSPORT_GRAVEL", 75, "coal");
+		text = modifyConstructionImpl(cm, text, "$STORAGE_IMPORT_SPECIAL RESOURCE_TRANSPORT_GRAVEL", 75, "coal", 1);
 		text = modifyConstruction(cm, text, "$STORAGE_EXPORT RESOURCE_TRANSPORT_OPEN", 70);
 		text = modifyConstruction(cm, text, "$COST_RESOURCE_AUTO ground_asphalt", 1);
 		text = modifyConstruction(cm, text, "$COST_RESOURCE_AUTO wall_brick", 1);
@@ -556,8 +560,8 @@ function processFile(filename, text) {
 		var c1 = tempFileOutput;
 		text = modifyConsumption(cm, text, "$CONSUMPTION gravel", 7);
 		var c2 = tempFileOutput;
-		text = modifyConstruction(cm, text, "$STORAGE_IMPORT_SPECIAL RESOURCE_TRANSPORT_GRAVEL", 75, "coal");
-		text = modifyConstruction(cm, text, "$STORAGE_IMPORT_SPECIAL RESOURCE_TRANSPORT_GRAVEL", 75, "gravel");
+		text = modifyConstructionImpl(cm, text, "$STORAGE_IMPORT_SPECIAL RESOURCE_TRANSPORT_GRAVEL", 75, "coal", 1);
+		text = modifyConstructionImpl(cm, text, "$STORAGE_IMPORT_SPECIAL RESOURCE_TRANSPORT_GRAVEL", 75, "gravel", 2);
 		text = modifyConstruction(cm, text, "$STORAGE_EXPORT RESOURCE_TRANSPORT_CEMENT", 70);
 		text = modifyConstruction(cm, text, "$COST_RESOURCE_AUTO ground_asphalt", 1);
 		text = modifyConstruction(cm, text, "$COST_RESOURCE_AUTO wall_concrete", 1);
@@ -638,8 +642,8 @@ function processFile(filename, text) {
 		text = modifyConsumption(acm, text, "$CONSUMPTION iron", 0.4);
 		var c2 = tempFileOutput;
 		text = modifyConstruction(acm, text, "$CONSUMPTION_PER_SECOND eletric", 0.19);
-		text = modifyConstruction(acm, text, "$STORAGE_IMPORT_SPECIAL RESOURCE_TRANSPORT_GRAVEL", 150, "iron");
-		text = modifyConstruction(acm, text, "$STORAGE_IMPORT_SPECIAL RESOURCE_TRANSPORT_GRAVEL", 150, "coal");
+		text = modifyConstructionImpl(acm, text, "$STORAGE_IMPORT_SPECIAL RESOURCE_TRANSPORT_GRAVEL", 150, "iron", 1);
+		text = modifyConstructionImpl(acm, text, "$STORAGE_IMPORT_SPECIAL RESOURCE_TRANSPORT_GRAVEL", 150, "coal", 2);
 		text = modifyConstruction(acm, text, "$STORAGE_EXPORT RESOURCE_TRANSPORT_OPEN", 150);
 		text = modifyConstruction(acm, text, "$COST_RESOURCE_AUTO ground_asphalt", 1);
 		text = modifyConstruction(acm, text, "$COST_RESOURCE_AUTO wall_brick", 1);
