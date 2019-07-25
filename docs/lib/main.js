@@ -237,6 +237,7 @@ $(function() {
 					$(".step4").css("opacity", "1.0");
 					$(".step5").css("opacity", "1.0");
 					downloadZip(zip);
+					$("#file").val("");
 				}
 				console.log(totalFilesRemaining + " files remaining to process.");
 			};
