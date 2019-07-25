@@ -83,7 +83,7 @@ If you want a milder experience, use lower numbers when generating your nation. 
 
 # How to use
 
-1. Download "economics.xlsx" (your spreadsheet for planning) and "workersandresources.jar" (the Java file that does the modding).
+1. Download "economics-v2.xlsx" (your spreadsheet for planning) and "workersandresources.jar" (the Java file that does the modding).
 2. Make a backup copy of your "buildings_types" directory from Workers & Resources: Soviet Republic into a safe place. The "buildings_types" directory is found at \[STEAM_DIRECTORY\]\steamapps\common\SovietRepublic\media_soviet\buildings_types
 3. Make a working copy of your "buildings_types" directory from Workers & Resources: Soviet Republic into a different place. (IMPORTANT! DO NOT USE MODDING SCRIPTS DIRECTLY ON YOUR GAME DIRECTORY, that's always a bad idea.)
 4. Run the script using Java. You will need to do this by typing in a command into a command-line prompt. In Windows, you get there by finding the "Command Prompt" (cmd.exe) app in the Start menu. The command you will need to type in is:
@@ -165,7 +165,7 @@ This is telling you which industries "should" be most productive, most large (nu
 
 This repo includes an Excel spreadsheet I used for designing this mod, and which you can use for planning how to build your great nation. It shows you the production values of every building that was modified, and estimates profitability of trade-based production for those buildings. Some people may prefer to play without using this "crutch".
 
-To use the spreadsheet, open economics.xlsx in Excel and make sure it's open to the "Custom" tab.
+To use the spreadsheet, open economics-v2.xlsx in Excel.
 
 Using a good text editor (not Notepad), copy the values that the script wrote in "data.tsv". Paste them into cell A5 in the spreadsheet. It should look like this:
 
