@@ -1,3 +1,5 @@
+*UPDATE:* this mod has been migrated to the web! The details below still apply, but the mod is now much easier to use! [Use the web version](https://jkraybill.github.io/workers-and-resources-productivity-mod/).
+
 # JK's Productivity Mod for Workers & Resources: Soviet Republic
 A scenario creation mod for the game "Workers &amp; Resources: Soviet Republic". It creates a unique set of economics for every new game by changing building production rates and costs.
 
