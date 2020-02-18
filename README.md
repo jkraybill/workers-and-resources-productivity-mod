@@ -1,3 +1,5 @@
+*EXTRA UPDATE:* this mod still works, and the web version below is what you want, but for a simpler way to make the game more difficult without having to mess with files manually, you may want to try [My Steam Workshop Productivity Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=1950873315). It's much more limited in scope and configurabililty than the web mod but is an easier way to dip your toe.
+
 *UPDATE:* this mod has been migrated to the web! The details below still apply, but the mod is now much easier to use! [Use the web version](https://jkraybill.github.io/workers-and-resources-productivity-mod/).
 
 # JK's Productivity Mod for Workers & Resources: Soviet Republic
